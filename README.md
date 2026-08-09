@@ -1,1 +1,3 @@
-万一哪天上岸了呢！！！
+# Personal Study Notes
+
+TestDev · Python · SQL · Linux · AI ｜ Continuously updated
