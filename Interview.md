@@ -108,10 +108,10 @@
 
 #### Q2:如果页面元素是动态加载的(点击后才出现),怎么处理?
 
-#### 说明
+##### 说明
 - 使用显式等待,等待元素出现再操作,而不是固定 sleep。
 - 常用 Expected Conditions:`visibility_of_element_located`(存在且可见)、`element_to_be_clickable`(可见且可用);也可用 `is_displayed()`/`is_enabled()` 判断。
-#### 示例
+##### 示例
 ```python
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -355,7 +355,7 @@ element = WebDriverWait(driver, 10).until(
 
 #### Q14:常用 Linux 命令分类?
 
-#### 说明
+##### 说明
 - 目录:ls/cd/pwd/mkdir/rm/mv/cp;查看:cat/tail/head/grep;进程:ps/top/kill;网络:netstat/ss/ping。
 
 ### 文件和目录常用命令
@@ -364,9 +364,9 @@ element = WebDriverWait(driver, 10).until(
 
 #### 场景1:日志分析
 
-#### 说明
+##### 说明
 - **问题**:给你一个 10GB 的访问日志,要求找出访问量最高的 10 个 URL,并统计每个 URL 的访问次数和平均响应时间(假设日志格式:IP - - [date] "GET /url HTTP/1.1" status size response_time)
-#### 解答
+##### 解答
 ```bash
 # 提取 URL(第7列)和响应时间(最后一列),统计次数和总和,计算平均
 awk '{url[$7]++; time[$7]+=$NF} END {for (u in url) print u, url[u], time[u]/url[u]}' access.log | sort -k2 -nr | head -10
@@ -374,9 +374,9 @@ awk '{url[$7]++; time[$7]+=$NF} END {for (u in url) print u, url[u], time[u]/url
 
 #### 场景2:批量文件处理
 
-#### 说明
+##### 说明
 - **问题**:有 1000 个测试数据文件,需要将所有文件名中的 "test" 替换为 "prod",并移动到另一个目录
-#### 解答
+##### 解答
 ```bash
 mkdir -p /data/prod
 for file in /data/test/*test*; do
@@ -395,9 +395,9 @@ done
 
 #### 场景4:服务重启脚本
 
-#### 说明
+##### 说明
 - **问题**:写一个脚本,检查服务是否运行,如果没有则启动,并发送告警
-#### 解答
+##### 解答
 ```bash
 #!/bin/bash
 SERVICE="nginx"
@@ -414,9 +414,9 @@ fi
 
 #### 场景5:实时监控错误并触发动作
 
-#### 说明
+##### 说明
 - **问题**:需要实时监控日志中的 ERROR,一旦出现就触发告警
-#### 解答
+##### 解答
 ```bash
 tail -f app.log | grep --line-buffered "ERROR" | while read line; do
     curl -X POST http://monitor/api/alert -d "msg=$line"
